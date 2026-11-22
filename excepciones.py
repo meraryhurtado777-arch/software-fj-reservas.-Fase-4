@@ -1,42 +1,42 @@
-# Importa la clase base Exception para construir excepciones personalizadas del sistema.
+# Importa la clase base Exception de Python para crear excepciones propias del sistema.
 class ErrorSistemaFJ(Exception):
-    # Define el constructor de la excepción base con un mensaje y un código opcional.
+    # Define el constructor de la excepción base con mensaje y código opcional.
     def __init__(self, mensaje: str, codigo: str = "ERR_GENERAL"):
-        # Guarda el mensaje legible del error en un atributo de instancia.
+        # Almacena el mensaje descriptivo del error en el atributo de instancia.
         self.mensaje = mensaje
-        # Guarda un código identificador para facilitar el rastreo en los logs.
+        # Almacena el código identificador del error en el atributo de instancia.
         self.codigo = codigo
-        # Invoca el constructor de Exception con un formato claro de código y mensaje.
+        # Llama al constructor de Exception formateando código y mensaje.
         super().__init__(f"[{self.codigo}] {self.mensaje}")
 
 
-# Define una excepción específica para datos inválidos o parámetros faltantes/erróneos.
+# Define una excepción específica para datos inválidos o parámetros incorrectos.
 class ErrorValidacionDato(ErrorSistemaFJ):
-    # Inicializa la excepción con un código por defecto de validación.
+    # Inicializa la excepción de validación con su código por defecto.
     def __init__(self, mensaje: str, codigo: str = "ERR_VALIDACION"):
-        # Pasa el mensaje y el código a la clase base ErrorSistemaFJ.
+        # Envía el mensaje y el código a la clase base ErrorSistemaFJ.
         super().__init__(mensaje, codigo)
 
 
 # Define una excepción cuando se intenta usar un servicio no disponible.
 class ServicioNoDisponibleError(ErrorSistemaFJ):
-    # Inicializa la excepción con un código por defecto de disponibilidad.
+    # Inicializa la excepción de disponibilidad con su código por defecto.
     def __init__(self, mensaje: str, codigo: str = "ERR_SERVICIO_NO_DISP"):
-        # Pasa el mensaje y el código a la clase base ErrorSistemaFJ.
+        # Envía el mensaje y el código a la clase base ErrorSistemaFJ.
         super().__init__(mensaje, codigo)
 
 
 # Define una excepción para operaciones no permitidas o estados inválidos de reserva.
 class OperacionReservaInvalidaError(ErrorSistemaFJ):
-    # Inicializa la excepción con un código por defecto de operación de reserva.
+    # Inicializa la excepción de reserva inválida con su código por defecto.
     def __init__(self, mensaje: str, codigo: str = "ERR_RESERVA_INVALIDA"):
-        # Pasa el mensaje y el código a la clase base ErrorSistemaFJ.
+        # Envía el mensaje y el código a la clase base ErrorSistemaFJ.
         super().__init__(mensaje, codigo)
 
 
-# Define una excepción cuando ocurren cálculos inconsistentes (valores negativos, cero, etc.).
+# Define una excepción para cálculos inconsistentes durante la operación.
 class CalculoInconsistenteError(ErrorSistemaFJ):
-    # Inicializa la excepción con un código por defecto de cálculo.
+    # Inicializa la excepción de cálculo con su código por defecto.
     def __init__(self, mensaje: str, codigo: str = "ERR_CALCULO"):
-        # Pasa el mensaje y el código a la clase base ErrorSistemaFJ.
+        # Envía el mensaje y el código a la clase base ErrorSistemaFJ.
         super().__init__(mensaje, codigo)
